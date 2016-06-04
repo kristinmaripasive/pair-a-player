@@ -1,0 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+* {
+  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;;
+    text-decoration: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+html {
+  background-color: #BBBBBB;
+}
+
+body {
+  margin: 50px;
+
+}
+
+header {
+  display: flex;
+}
+
+#logo {
+  height: 100px;
+  border-radius: 18%;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: 'Pacifico', cursive;
+}
+
+.bar {
+  width: 100%;
+  display: flex;
+}
+
+.bar li {
+  flex-grow: 1;
+  font-family: 'Poiret One', cursive;
+  list-style-type: none;
+  background-color: #0069B0;
+  line-height: 50px;
+  text-align: center;
+  box-shadow: 5px 5px 5px 0px #3A3A44;
+  color: #FFFFFF;
+}
+
+li {
+  margin-right: 10px;
+}
+
+.border-base {
+  margin-top: 20px;
+  border-top: 5px solid #E41A4C;
+}

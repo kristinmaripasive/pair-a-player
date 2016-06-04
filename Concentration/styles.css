@@ -19,11 +19,11 @@ html {
 
 body {
   margin: 50px;
-
 }
 
 header {
   display: flex;
+  justify-content: center;
 }
 
 #logo {
@@ -40,6 +40,7 @@ h1 {
 .bar {
   width: 100%;
   display: flex;
+  margin-top: 20px;
 }
 
 .bar li {

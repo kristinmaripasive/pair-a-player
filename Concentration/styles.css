@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
 
 * {
   box-sizing: border-box;
@@ -19,6 +20,8 @@ html {
 
 body {
   margin: 50px;
+  border: 5px solid #E41A4C;
+  padding: 30px 50px;
 }
 
 header {
@@ -29,12 +32,14 @@ header {
 #logo {
   height: 100px;
   border-radius: 18%;
-  margin: 10px;
+  margin: 15px;
+  box-shadow: 5px 5px 5px 0px #3A3A44;
 }
 
 h1 {
   font-size: 60px;
   font-family: 'Pacifico', cursive;
+  text-align: center;
 }
 
 .bar {
@@ -43,22 +48,64 @@ h1 {
   margin-top: 20px;
 }
 
-.bar li {
+.bar div {
   flex-grow: 1;
   font-family: 'Poiret One', cursive;
-  list-style-type: none;
   background-color: #0069B0;
   line-height: 50px;
   text-align: center;
   box-shadow: 5px 5px 5px 0px #3A3A44;
   color: #FFFFFF;
+  padding-bottom: 20px;
+  border: 3px solid white;
 }
 
-li {
+div {
   margin-right: 10px;
+}
+
+.symbol {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Pacifico', cursive;
+  cursor:pointer;
 }
 
 .border-base {
   margin-top: 20px;
   border-top: 5px solid #E41A4C;
+  display: flex;
+}
+
+.base {
+  margin-top: 50px;
+  width: 800px;
+}
+
+.base img{
+  border-radius: 20%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.base div{
+  display:inline-block;
+  width:150px;
+  height:200px;
+  margin:10px;
+  border-radius:20%;
+  background-color: #0065AD;
+  border: 5px solid white;
+  cursor:pointer;
+}
+
+.basketball img {
+  width: 500px;
+  height: 400px;
+  margin: 0px auto;
+  padding-top: 20px;
+  display: inline-block;
 }

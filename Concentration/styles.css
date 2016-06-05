@@ -14,14 +14,13 @@
     color: inherit;
 }
 
-html {
-  background-color: #BBBBBB;
-}
 
 body {
   margin: 50px;
   border: 5px solid #E41A4C;
   padding: 30px 50px;
+  background-color: #BBBBBB;
+  box-shadow: 5px 5px 20px 10px #3A3A44;
 }
 
 header {

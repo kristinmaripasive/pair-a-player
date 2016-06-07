@@ -88,7 +88,6 @@ div {
 /*direct background of cards*/
 .base {
   perspective: 700;
-  background-color: red;
   margin-top: 50px;
   width: 800px;
   padding-left: 50px;
@@ -111,7 +110,7 @@ div {
   height:200px;
   margin:10px;
   transition: -webkit-transform 0.5s linear 0s;
-  transition: transform 0.5ss linear 0s;
+  transition: transform 0.5s linear 0s;
   transform-style: preserve-3d;
 }
 

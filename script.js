@@ -23,23 +23,25 @@ reset.on("click", playAgain);
 
 
 // shuffles the images function
-// Array.prototype.cardShuffle = function(){
-//   var i = 0
-//     , j = 0
-//     , temp = null
-//
-//   for (i = array.length - 1; i > 0; i -= 1) {
-//     j = Math.floor(Math.random() * (i + 1))
-//     temp = array[i]
-//     array[i] = array[j]
-//     array[j] = temp
-//     console.log("dahdas");
-//   }
-// }
+Array.prototype.cardShuffle = function(){                       // shuffles array
+    var i = this.length, j, temp;
+    while(--i > 0){
+        j = Math.floor(Math.random() * (i+1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
+}
 
-
+imageArray.cardShuffle();
 
 // places an image in the card container
+var innerHTML = $(".back").html();
+for(var i=0; i<imageArray.length; i++){
+  innerHTML += "<img src='" + imageArray[i] + "' />";
+}
+$(".back").html(innerHTML);
+
 // for (var i=0; i<imageArray.length; i++){
 //   document.getElementById("cards") =  imageArray[];
 //   // imageArray[i]=(i+1);

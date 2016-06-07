@@ -12,6 +12,7 @@
     text-decoration: inherit;
     line-height: inherit;
     color: inherit;
+    border: 1px solid blue;
 }
 
 
@@ -37,6 +38,12 @@ header {
 
 h1 {
   font-size: 60px;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+
+h2 {
+  font-size: 40px;
   font-family: 'Pacifico', cursive;
   text-align: center;
 }
@@ -71,40 +78,73 @@ div {
   cursor:pointer;
 }
 
+/*background of cards and basketball*/
 .border-base {
   margin-top: 20px;
   border-top: 5px solid #E41A4C;
   display: flex;
 }
 
+/*direct background of cards*/
 .base {
+  perspective: 700;
+  background-color: red;
   margin-top: 50px;
   width: 800px;
+  padding-left: 50px;
 }
 
+/*players images*/
 .base img{
+  position: absolute;
   border-radius: 20%;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;;
+  margin-right: 10px;
   margin-top: 30px;
 }
 
-.base div{
+/*individual cards*/
+.card{
+  position: relative;
   display:inline-block;
   width:150px;
   height:200px;
   margin:10px;
-  border-radius:20%;
-  background-color: #0065AD;
-  border: 5px solid white;
-  cursor:pointer;
+  transition: -webkit-transform 0.5s linear 0s;
+  transition: transform 0.5ss linear 0s;
+  transform-style: preserve-3d;
 }
 
+/*basketball picture*/
 .basketball img {
-  width: 500px;
-  height: 400px;
+  float: right;
+  width: 400px;
+  height: 320px;
   margin: 0px auto;
   padding-top: 20px;
   display: inline-block;
+}
+
+/*Flip cards*/
+
+.front, .back {
+  position:absolute;
+  background-color: #0065AD;
+  border: 5px solid white;
+  border-radius:20%;
+  cursor:pointer;
+  width:150px;
+  height:200px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.back {
+  -webkit-transform: perspective(400px) rotateY(180deg);
+  transform: perspective(400px) rotateY(180deg);
+}
+
+.flip {
+  -webkit-transform: perspective(400px) rotateY(180deg);
+  transform: perspective(400px) rotateY(180deg);
 }

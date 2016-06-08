@@ -78,6 +78,7 @@ function playAgain(){
 
 
 $(".card").on("click", function(){
+
   var card = $(this);
   var value = card.find("img").attr("src");
   imageValues.push(value);
@@ -98,7 +99,22 @@ $(".card").on("click", function(){
     }
 
       imageValues = [imageValues[2]];
-      
+
     }
+    winGame();
   })
+
+//checks if user won the game
+function winGame(){
+  var isFlipped = $(".card").filter(".flip").length;
+  console.log(isFlipped);
+  if(isFlipped === 8){
+    alert("You won the game!");
+  } else {
+    console.log("false");
+  }
+
+}
+
+
 })

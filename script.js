@@ -39,12 +39,6 @@ for(var i=0; i < imageArray.length; i++){
   // ("<img src='" + imageArray[i] + "' />")
 }
 
-//tester
-$("h1").on("click", test);
-function test(){
-  console.log(card.find("img").attr("src"));
-}
-
 
 // timer increments in seconds
 function startTimer(){
@@ -82,90 +76,29 @@ function playAgain(){
   document.location.reload(true);
 }
 
-// card.on("click", selectCard);
-//
-// //selecting a card
-// function selectCard() {
-//   var card = $(".card");
-//   $(this).toggleClass("flip");
-//   var val = card.find("img").attr("src")
-//   //push card value into array
-//   imageArray.push(val);
-// }
-
-
-
 
 $(".card").on("click", function(){
   var card = $(this);
   var value = card.find("img").attr("src");
   imageValues.push(value);
-  console.log(imageValues);
   card.toggleClass("flip");
-    if(imageValues[imageValues.length-1] == imageValues[imageValues.length-2]){
-      console.log("DID MATCH");
-      imageValues = [];
-      //adding points
-      var pointsCount = $(".points")
-      points+=1;
-      pointsCount.html(points);
+  if(imageValues.length == 3){
+    console.log(imageValues);
+      if(imageValues[0] == imageValues[1]){
+        console.log("DID MATCH");
+
+        //adding points
+        var pointsCount = $(".points")
+        points+=1;
+        pointsCount.html(points);
+
     } else {
       console.log("DID NOT MATCH");
-      // setTimeout(function(){
-      //     $(".flip").addClass("flip");
-
-      // }, 500)
-
+        card.siblings(".flip").removeClass("flip");
     }
 
-    // setTimeout(function(){
-    //   imageArray[imageArray.length-1].toggleClass("flip");
-    //   imageArray[imageArray.length-2].toggleClass("flip");
-    // }, 900);
-
-
-
-})
-
-// flipping a card back
-// card.toggleClass("flip");
-// setTimeout(function(){
-//   card.toggleClass("flip");
-// }, 900);
-
-//checking to see if cards match
-// $(".card").on("click", function(){
-//   var card = $(this);
-//   var value = card.find("img").attr("src");
-//   imageValues.push(value);
-//   console.log(imageValues);
-// card.toggleClass("flip");
-
-
-
-
-// card.find("img").attr("src")
-
-// function pairPlayer(card,val){
-// if(card.innerHTML == "" && imageValues < 2){
-//   if (imageValues.length) == 0){
-//     imageValues.push(val);
-//     imageIds.push(card.id);
-//   } else if(imageValues.length == 1){
-//     imageValues.push(val);
-//     imageIds.push(card.id);
-//     if(imageValues[0] == imageValues[1]){
-//       cards_flipped +=2;
-//       //Clear both arrays
-//       imageValues = [];
-//       imageIds = [];
-//
-//     }
-//   }
-// }
-// }
-
-
-
-
+      imageValues = [imageValues[2]];
+      
+    }
+  })
 })

@@ -12,9 +12,7 @@
     text-decoration: inherit;
     line-height: inherit;
     color: inherit;
-    border: 1px solid blue;
 }
-
 
 body {
   margin: 50px;
@@ -48,6 +46,7 @@ h2 {
   text-align: center;
 }
 
+/*button styles*/
 .bar {
   width: 100%;
   display: flex;

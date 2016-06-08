@@ -7,13 +7,7 @@ var points = $("#points");
 var reset = $("#again");
 var timer = 10;
 var i = 0
-var imageArray = []
-imageArray[0] = "nba-faces-steph.jpg";
-imageArray[1] = "nba-faces-kobe.jpg";
-imageArray[2] = "nba-faces-kevin.jpg";
-imageArray[3] = "nba-faces-james.jpg";
-var cards = $("div .back");
-var output = '';
+var imageArray = ["nba-faces-steph.jpg", "nba-faces-kobe.jpg", "nba-faces-kevin.jpg", "nba-faces-james.jpg", "nba-faces-steph.jpg", "nba-faces-kobe.jpg", "nba-faces-kevin.jpg", "nba-faces-james.jpg"];
 
 
 
@@ -22,8 +16,8 @@ pause.on("click", pauseTimer);
 reset.on("click", playAgain);
 
 
-// shuffles the images function
-Array.prototype.cardShuffle = function(){                       // shuffles array
+// shuffles the images
+Array.prototype.cardShuffle = function(){
     var i = this.length, j, temp;
     while(--i > 0){
         j = Math.floor(Math.random() * (i+1));
@@ -35,18 +29,16 @@ Array.prototype.cardShuffle = function(){                       // shuffles arra
 
 imageArray.cardShuffle();
 
-// places an image in the card container
-var innerHTML = $(".back").html();
-for(var i=0; i<imageArray.length; i++){
-  innerHTML += "<img src='" + imageArray[i] + "' />";
-}
-$(".back").html(innerHTML);
 
-// for (var i=0; i<imageArray.length; i++){
-//   document.getElementById("cards") =  imageArray[];
-//   // imageArray[i]=(i+1);
-//   // document.getElementById("cards")
-// });
+// places an image in the card container
+// var innerHTML = $(".back").html();
+for(var i=0; i < imageArray.length; i++){
+  $(".back").eq(i).html("<img src='" + imageArray[i] + "' />")
+}
+// $(".back").html(innerHTML);
+
+
+
 
 // timer increments in seconds
 function startTimer(){
@@ -83,10 +75,18 @@ function playAgain(){
   time.html("10");
 }
 
+
+
 // flipping a card function
 $(".card").on("click", function(){
-  $(this).toggleClass("flip");
-})
+  var card = $(this);
+  card.toggleClass("flip");
+  setTimeout(function(){
+    card.toggleClass("flip");
+  }, 900);
+});
+
+
 
 
 

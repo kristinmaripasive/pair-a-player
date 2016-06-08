@@ -3,7 +3,7 @@ $(document).ready(function(){
 var start = $("#start");
 var pause = $("#pause");
 var time = $("#time");
-var points = $("#points");
+var points = 0
 var reset = $("#again");
 var card = $(".card");
 var timer = 20;
@@ -94,21 +94,33 @@ function playAgain(){
 // }
 
 
+
+
 $(".card").on("click", function(){
   var card = $(this);
   var value = card.find("img").attr("src");
   imageValues.push(value);
   console.log(imageValues);
   card.toggleClass("flip");
-  if(imageValues[imageValues.length-1] == imageValues[imageValues.length-2]){
-    console.log("DID SOMETHING");
+    if(imageValues[imageValues.length-1] == imageValues[imageValues.length-2]){
+      console.log("DID MATCH");
+      imageValues = [];
+      //adding points
+      var pointsCount = $(".points")
+      points+=1;
+      pointsCount.html(points);
+    } else {
+      console.log("DID NOT MATCH");
+      // imageValues[imageValues.length-1].children().toggleClass("flip");
+      // imageValues[imageValues.length-2].children().toggleClass("flip");
+    }
+
     // setTimeout(function(){
     //   imageArray[imageArray.length-1].toggleClass("flip");
     //   imageArray[imageArray.length-2].toggleClass("flip");
-    //   card.toggleClass("flip");
     // }, 900);
 
-  }
+
 
 })
 

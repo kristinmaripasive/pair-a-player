@@ -112,8 +112,10 @@ div {
 /*background of cards and basketball*/
 .border-base {
   margin-top: 20px;
+  margin-bottom: 30px;
   border-top: 5px solid #E41A4C;
   display: flex;
+  position: relative;
 }
 
 /*direct background of cards*/
@@ -177,4 +179,21 @@ div {
 .flip {
   -webkit-transform: perspective(400px) rotateY(180deg);
   transform: perspective(400px) rotateY(180deg);
+}
+
+/*layer that locks the game*/
+.overlay-container {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0065AD;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.overlay-container.active {
+  display: none;
 }

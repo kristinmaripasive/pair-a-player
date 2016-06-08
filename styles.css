@@ -66,6 +66,21 @@ h2 {
   border: 3px solid white;
 }
 
+.bar #start:hover {
+  background-color: #E41A4C;
+  cursor:pointer;
+}
+
+.bar #pause:hover {
+  background-color: #E41A4C;
+  cursor:pointer;
+}
+
+.bar #again:hover {
+  background-color: #E41A4C;
+  cursor:pointer;
+}
+
 div {
   margin-right: 10px;
 }
@@ -75,7 +90,6 @@ div {
   display: flex;
   justify-content: center;
   font-family: 'Pacifico', cursive;
-  cursor:pointer;
 }
 
 /*background of cards and basketball*/

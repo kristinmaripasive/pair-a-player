@@ -79,7 +79,7 @@ function playAgain(){
   clearInterval(timerId);
   timer=15;
   time.html("20");
-
+  document.location.reload(true);
 }
 
 // card.on("click", selectCard);
@@ -111,8 +111,11 @@ $(".card").on("click", function(){
       pointsCount.html(points);
     } else {
       console.log("DID NOT MATCH");
-      // imageValues[imageValues.length-1].children().toggleClass("flip");
-      // imageValues[imageValues.length-2].children().toggleClass("flip");
+      // setTimeout(function(){
+      //     $(".flip").addClass("flip");
+
+      // }, 500)
+
     }
 
     // setTimeout(function(){

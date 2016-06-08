@@ -5,9 +5,12 @@ var pause = $("#pause");
 var time = $("#time");
 var points = $("#points");
 var reset = $("#again");
-var timer = 10;
+var card = $(".card");
+var timer = 20;
 var i = 0
+var timerId;
 var imageArray = ["nba-faces-steph.jpg", "nba-faces-kobe.jpg", "nba-faces-kevin.jpg", "nba-faces-james.jpg", "nba-faces-steph.jpg", "nba-faces-kobe.jpg", "nba-faces-kevin.jpg", "nba-faces-james.jpg"];
+var imageValues = [];
 
 
 
@@ -30,14 +33,17 @@ Array.prototype.cardShuffle = function(){
 imageArray.cardShuffle();
 
 
-// places an image in the card container
-// var innerHTML = $(".back").html();
+// places an image in the card container and its ID
 for(var i=0; i < imageArray.length; i++){
-  $(".back").eq(i).html("<img src='" + imageArray[i] + "' />")
+  $(".back").eq(i).html("<img src='" + imageArray[i] + "' />");
+  // ("<img src='" + imageArray[i] + "' />")
 }
-// $(".back").html(innerHTML);
 
-
+//tester
+$("h1").on("click", test);
+function test(){
+  console.log(card.find("img").attr("src"));
+}
 
 
 // timer increments in seconds
@@ -56,7 +62,7 @@ function startTimer(){
 
 // timer calls increment and sets 1 second intervals
 function beginTimer(){
-  if(timer<10){
+  if(timer<20){
     return;
   } else {
     timerId = setInterval(startTimer, 1000);
@@ -71,22 +77,78 @@ function pauseTimer(){
 // timer gets cleared and resets to 0
 function playAgain(){
   clearInterval(timerId);
-  timer=10;
-  time.html("10");
+  timer=15;
+  time.html("20");
+
 }
 
+// card.on("click", selectCard);
+//
+// //selecting a card
+// function selectCard() {
+//   var card = $(".card");
+//   $(this).toggleClass("flip");
+//   var val = card.find("img").attr("src")
+//   //push card value into array
+//   imageArray.push(val);
+// }
 
 
-// flipping a card function
 $(".card").on("click", function(){
   var card = $(this);
+  var value = card.find("img").attr("src");
+  imageValues.push(value);
+  console.log(imageValues);
   card.toggleClass("flip");
-  setTimeout(function(){
-    card.toggleClass("flip");
-  }, 900);
-});
+  if(imageValues[imageValues.length-1] == imageValues[imageValues.length-2]){
+    console.log("DID SOMETHING");
+    // setTimeout(function(){
+    //   imageArray[imageArray.length-1].toggleClass("flip");
+    //   imageArray[imageArray.length-2].toggleClass("flip");
+    //   card.toggleClass("flip");
+    // }, 900);
+
+  }
+
+})
+
+// flipping a card back
+// card.toggleClass("flip");
+// setTimeout(function(){
+//   card.toggleClass("flip");
+// }, 900);
+
+//checking to see if cards match
+// $(".card").on("click", function(){
+//   var card = $(this);
+//   var value = card.find("img").attr("src");
+//   imageValues.push(value);
+//   console.log(imageValues);
+// card.toggleClass("flip");
 
 
+
+
+// card.find("img").attr("src")
+
+// function pairPlayer(card,val){
+// if(card.innerHTML == "" && imageValues < 2){
+//   if (imageValues.length) == 0){
+//     imageValues.push(val);
+//     imageIds.push(card.id);
+//   } else if(imageValues.length == 1){
+//     imageValues.push(val);
+//     imageIds.push(card.id);
+//     if(imageValues[0] == imageValues[1]){
+//       cards_flipped +=2;
+//       //Clear both arrays
+//       imageValues = [];
+//       imageIds = [];
+//
+//     }
+//   }
+// }
+// }
 
 
 

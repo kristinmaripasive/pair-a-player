@@ -14,7 +14,10 @@ var imageValues = [];
 
 
 
-start.on("click", beginTimer);
+start.on("click", function(){
+  beginTimer()
+  $(".overlay-container").remove();
+});
 pause.on("click", pauseTimer);
 reset.on("click", playAgain);
 

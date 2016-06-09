@@ -35,22 +35,22 @@ Array.prototype.cardShuffle = function(){
 imageArray.cardShuffle();
 
 
-// places an image in the card container and its ID
+// places an image in the card container
 for(var i=0; i < imageArray.length; i++){
   $(".back").eq(i).html("<img src='" + imageArray[i] + "' />");
 }
 
 
-// timer increments in seconds
+// timer countdown in seconds
 function startTimer(){
   if(timer == 0){
     timer = 0;
     alert ("Game over!");
     clearInterval(timerId);
   } else {
-  timer-=1;
-  time.html(timer);
-  return;
+      timer-=1;
+      time.html(timer);
+      return;
   }
 };
 
@@ -68,7 +68,7 @@ function pauseTimer(){
   clearInterval(timerId);
 }
 
-// timer gets cleared and resets to 0
+// timer gets cleared and resets to 0, reloads page
 function playAgain(){
   clearInterval(timerId);
   timer=15;
@@ -95,7 +95,8 @@ $(".card").on("click", function(){
 
     } else {
       console.log("DID NOT MATCH");
-        card.siblings(".flip").removeClass("flip"); //removes cards that have a class of flip since did not match
+        //removes cards that have a class of flip since did not match
+        card.siblings(".flip").removeClass("flip");
     }
       imageValues = [imageValues[2]];
     }
@@ -108,6 +109,7 @@ function winGame(){
   console.log(isFlipped);
   if(isFlipped === 8){
     alert("You won the game!");
+    pauseTimer();
   } else {
     console.log("false");
   }

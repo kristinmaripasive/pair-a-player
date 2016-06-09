@@ -3,19 +3,18 @@ $(document).ready(function(){
 var start = $("#start");
 var pause = $("#pause");
 var time = $("#time");
-var points = 0
+var points = 0;
 var reset = $("#again");
 var card = $(".card");
 var timer = 20;
-var i = 0
+var i = 0;
 var timerId;
 var imageArray = ["nba-faces-steph.jpg", "nba-faces-kobe.jpg", "nba-faces-kevin.jpg", "nba-faces-james.jpg", "nba-faces-steph.jpg", "nba-faces-kobe.jpg", "nba-faces-kevin.jpg", "nba-faces-james.jpg"];
 var imageValues = [];
 
-
-
+//event listeners
 start.on("click", function(){
-  beginTimer()
+  beginTimer();
   $(".overlay-container").remove();
 });
 pause.on("click", pauseTimer);
@@ -39,7 +38,6 @@ imageArray.cardShuffle();
 // places an image in the card container and its ID
 for(var i=0; i < imageArray.length; i++){
   $(".back").eq(i).html("<img src='" + imageArray[i] + "' />");
-  // ("<img src='" + imageArray[i] + "' />")
 }
 
 
@@ -53,8 +51,7 @@ function startTimer(){
   timer-=1;
   time.html(timer);
   return;
-}
-
+  }
 };
 
 // timer calls increment and sets 1 second intervals
@@ -79,7 +76,7 @@ function playAgain(){
   document.location.reload(true);
 }
 
-
+//main game function
 $(".card").on("click", function(){
 
   var card = $(this);
@@ -98,16 +95,14 @@ $(".card").on("click", function(){
 
     } else {
       console.log("DID NOT MATCH");
-        card.siblings(".flip").removeClass("flip");
+        card.siblings(".flip").removeClass("flip"); //removes cards that have a class of flip since did not match
     }
-
       imageValues = [imageValues[2]];
-
     }
-    winGame();
+      winGame();
   })
 
-//checks if user won the game
+//checks if user has flipped all cards and won the game
 function winGame(){
   var isFlipped = $(".card").filter(".flip").length;
   console.log(isFlipped);

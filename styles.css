@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+@import 'https://fonts.googleapis.com/css?family=Raleway';
 
 * {
   box-sizing: border-box;
@@ -50,7 +51,7 @@ p {
   font-size: 27px;
   font-weight: bold;
   color: #0065AD;
-  font-family: 'Poiret One', cursive;
+  font-family: 'Raleway', sans-serif;
   text-align: center;
   padding: 3px;
   text-shadow: 1px 1px #333A45;
@@ -196,4 +197,13 @@ div {
 
 .overlay-container.active {
   display: none;
+}
+
+#gamestart {
+  font-weight: bolder;
+color: black;
+}
+
+h6 {
+  text-align: center;
 }

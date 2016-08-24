@@ -1,5 +1,7 @@
 $(document).ready(function(){
-
+// ACA - you have around ten images. You might want to move them to an img folder
+// and access them with "img/hoop.jpg" or whatever. If you were working with
+// thousands of images, you'd want that for sure.
 var start = $("#start");
 var pause = $("#pause");
 var time = $("#time");
@@ -44,19 +46,21 @@ for(var i=0; i < imageArray.length; i++){
 // timer increments in seconds
 function startTimer(){
   if(timer == 0){
-    timer = 0;
+    timer = 0; // ACA - This confuses me some. It says if timer is zero,
+              // set it to zero. Or am i missing something?
     alert ("Game over!");
     clearInterval(timerId);
   } else {
   timer-=1;
   time.html(timer);
-  return;
+  return; // ACA - You don't need a return unless it returns a value. This doesn't
+          // hurt anything, though.
   }
 };
 
 // timer calls increment and sets 1 second intervals
 function beginTimer(){
-  if(timer<20){
+  if(timer<20){ // ACA - does this cover beginning the timer if it's running?
     return;
   } else {
     timerId = setInterval(startTimer, 1000);
@@ -64,7 +68,8 @@ function beginTimer(){
 }
 
 // timer gets paused
-function pauseTimer(){
+function pauseTimer(){ // ACA - Why not just use clearInterval? Do you think
+                      // you might want to expand this?
   clearInterval(timerId);
 }
 
@@ -83,7 +88,7 @@ $(".card").on("click", function(){
   var value = card.find("img").attr("src");
   imageValues.push(value);
   card.toggleClass("flip");
-  if(imageValues.length == 3){
+  if(imageValues.length == 3){ // ACA - why is 3 special?
     console.log(imageValues);
       if(imageValues[0] == imageValues[1]){
         console.log("DID MATCH");
@@ -99,11 +104,14 @@ $(".card").on("click", function(){
     }
       imageValues = [imageValues[2]];
     }
-      winGame();
+      winGame(); // ACA -- is there a losing condition?
   })
 
 //checks if user has flipped all cards and won the game
-function winGame(){
+
+function winGame(){ // ACA - perhaps this is just me being "old-school"
+                    // but I'd move this above your main body with all
+                    // all of its other function dfinition friends
   var isFlipped = $(".card").filter(".flip").length;
   console.log(isFlipped);
   if(isFlipped === 8){
